@@ -13,14 +13,22 @@
 
     header {
       background: linear-gradient(135deg, #a8edea, #fed6e3);
-      padding: 20px;
-      text-align: center;
+      padding: 25px 20px;
     }
-    header h1 {
-      font-size: 2rem;
+    .branding {
+      display: flex; align-items: center; justify-content: center; gap: 15px;
+      max-width: 1000px; margin: auto; text-align: left;
+    }
+    .branding img { width: 90px; height: auto; }
+    .branding-text { display: flex; flex-direction: column; align-items: flex-start; }
+    .branding h1 {
+      font-size: 2rem; font-weight: bold;
       background: linear-gradient(135deg, #008080, #800080);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+    .branding p {
+      font-size: 1.1rem; color: #333;
     }
 
     section { flex: 1; max-width: 800px; margin: auto; padding: 40px 20px; text-align: center; }
@@ -57,6 +65,26 @@
     .email { background: #D44638; }
     .youtube { background: #FF0000; }
 
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .fixed-contact {
+      position: fixed; bottom: 15px; left: 15px; right: auto;
+      display: flex; flex-direction: column; gap: 10px; z-index: 1000;
+      transform: scale(0.8);
+      transform-origin: bottom left;
+    }
+    .fixed-contact a {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 18px; border-radius: 50px; font-weight: bold;
+      text-decoration: none; color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: float 2s ease-in-out infinite;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .fixed-contact a:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0,0,0,0.25); }
+
     footer {
       background: #333; color: white; padding: 15px; font-size: 0.9rem;
       margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -78,21 +106,28 @@
       width: 20px; height: 20px; fill: white;
     }
 
-    /* Highlight active link */
     .footer-links a.active {
-      color: #ffd700; /* gold text */
+      color: #ffd700;
     }
     .footer-links a.active svg {
-      fill: #ffd700; /* gold icon */
+      fill: #ffd700;
     }
   </style>
 </head>
 <body>
 
+  <!-- Branding Header -->
   <header>
-    <h1>Contact Us</h1>
+    <div class="branding">
+      <img src="Naada Raja Yoga Logo.png" alt="Naada Raja Yoga Logo">
+      <div class="branding-text">
+        <h1>Naada Raja Yoga</h1>
+        <p>Personalized Yoga Journey</p>
+      </div>
+    </div>
   </header>
 
+  <!-- Contact Section -->
   <section>
     <h2>We’d love to hear from you</h2>
 
@@ -138,7 +173,7 @@
             94.2-35.8 26-26 35.7-58 
             35.8-94.2.1-37.2.1-148.8 
             0-186z"/>
-          </svg>
+        </svg>
         </span>
         @naada.raja.yoga
       </a>
@@ -174,13 +209,21 @@
             42.3-24.9 48.6-48.6C561 352.4 
             561 256 561 256s0-96.4-11.3-131.9zM232 
             334V178l142 78-142 78z"/>
-          </svg>
+        </svg>
         </span>
         @NaadaRajaYoga
       </a>
     </div>
   </section>
 
+  <!-- Floating Contact Icons -->
+  <div class="fixed-contact">
+    <a href="http://wa.me/+919539342026" target="_blank" class="whatsapp">WhatsApp</a>
+    <a href="https://www.instagram.com/naada.raja.yoga/" target="_blank" class="instagram">Instagram</a>
+    <a href="mailto:yoga@naadaraja.com" target="_blank" class="email">Email</a>
+  </div>
+
+  <!-- Footer -->
   <footer>
     <div class="footer-links">
       <a href="https://naadaraja.com" title="Home">
