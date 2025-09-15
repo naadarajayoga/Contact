@@ -9,7 +9,7 @@
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-    body { line-height: 1.6; color: #333; background: #fefefe; }
+    body { line-height: 1.6; color: #333; background: #fefefe; min-height: 100vh; display: flex; flex-direction: column; }
 
     header {
       background: linear-gradient(135deg, #a8edea, #fed6e3);
@@ -23,7 +23,7 @@
       -webkit-text-fill-color: transparent;
     }
 
-    section { max-width: 800px; margin: auto; padding: 40px 20px; text-align: center; }
+    section { flex: 1; max-width: 800px; margin: auto; padding: 40px 20px; text-align: center; }
     section h2 { margin-bottom: 30px; font-size: 1.9rem; color: #444; }
 
     .contact-options {
@@ -59,7 +59,21 @@
 
     footer {
       background: #333; color: white; text-align: center;
-      padding: 15px; font-size: 0.9rem; margin-top: 50px;
+      padding: 15px; font-size: 0.9rem;
+      margin-top: auto;
+    }
+    .footer-links {
+      margin-top: 8px;
+      display: flex; justify-content: center; gap: 15px;
+    }
+    .footer-links a {
+      color: white;
+      display: inline-block;
+      width: 22px; height: 22px;
+    }
+    .footer-links svg {
+      width: 100%; height: 100%;
+      fill: white;
     }
   </style>
 </head>
@@ -75,7 +89,7 @@
     <div class="contact-options">
       <a href="http://wa.me/+919539342026" target="_blank" class="whatsapp">
         <span class="icon">
-          <!-- WhatsApp Icon (same as main site) -->
+          <!-- WhatsApp Icon -->
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path fill="#25D366" d="M224 0C100.3 0 0 100.3 0 224c0 39.5 10.3 77.5 
             29.9 111.2L16 496l164.1-43.1C205.6 466.4 
@@ -97,7 +111,7 @@
 
       <a href="https://www.instagram.com/naada.raja.yoga/" target="_blank" class="instagram">
         <span class="icon">
-          <!-- Instagram Icon (same as main site) -->
+          <!-- Instagram Icon -->
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path fill="#FFF" d="M224 202.7c-31.6 0-57.3 
             25.7-57.3 57.3s25.7 57.3 57.3 
@@ -121,7 +135,7 @@
 
       <a href="mailto:yoga@naadaraja.com" target="_blank" class="email">
         <span class="icon">
-          <!-- Email Icon (same as main site) -->
+          <!-- Email Icon -->
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path fill="#fff" d="M502.3 190.8L327.4 338c-15.9 13.1-39.1 13.1-55 
             0L9.7 190.8C3.9 186.5 0 179.3 0 
@@ -159,6 +173,19 @@
 
   <footer>
     <p>&copy; 2025 Naada Raja Yoga. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://naadaraja.com" title="Home">
+        <!-- Home Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M541 229.16l-61-52.06V56c0-13.25-10.75-24-24-24h-72c-13.25 
+          0-24 10.75-24 24v24L314.4 43c-15.9-13.6-39.3-13.6-55.2 
+          0L35 229.2c-9.9 8.4-11.1 23.3-2.7 33.2s23.3 11.1 33.2 
+          2.7L96 232.1V456c0 30.9 25.1 56 56 56h96V360h80v152h96c30.9 
+          0 56-25.1 56-56V232l30.6 26c9.9 8.4 24.8 7.1 33.2-2.7 
+          8.4-9.9 7.1-24.8-2.7-33.2z"/>
+        </svg>
+      </a>
+    </div>
   </footer>
 
 </body>
