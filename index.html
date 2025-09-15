@@ -1,23 +1,175 @@
-<form action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse" 
-      method="POST" target="hidden_iframe" onsubmit="this.reset(); alert('Thank you! Your response has been submitted.');">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Naada Raja Yoga</title>
 
-  <label for="name">Name</label>
-  <input type="text" id="name" name="entry.1111111111" required>
+  <link rel="icon" href="favicon.png" type="image/png">
 
-  <label for="email">Email</label>
-  <input type="email" id="email" name="entry.2222222222" required>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { line-height: 1.6; color: #333; background: #fefefe; }
 
-  <label for="phone">Phone Number</label>
-  <input type="tel" id="phone" name="entry.3333333333" required>
+    header {
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2rem;
+      background: linear-gradient(135deg, #008080, #800080);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-  <label for="nationality">Nationality</label>
-  <input type="text" id="nationality" name="entry.4444444444" required>
+    section { max-width: 800px; margin: auto; padding: 30px 20px; }
+    section h2 { text-align: center; margin-bottom: 20px; font-size: 1.8rem; color: #444; }
 
-  <label for="notes">Additional Notes</label>
-  <textarea id="notes" name="entry.5555555555"></textarea>
+    .contact-form {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .contact-form label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+      color: #444;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form button {
+      margin-top: 15px;
+      background: linear-gradient(135deg, #008080, #800080);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .contact-form button:hover { opacity: 0.9; }
 
-  <button type="submit">Send Message</button>
-</form>
+    .fixed-contact {
+      position: fixed; bottom: 15px; left: 15px; display: flex;
+      flex-direction: column; gap: 10px; z-index: 1000;
+      transform: scale(0.8); transform-origin: bottom left;
+    }
+    .fixed-contact a {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 18px; border-radius: 50px; font-weight: bold;
+      text-decoration: none; color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .fixed-contact a:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0,0,0,0.25); }
 
-<!-- Invisible iframe prevents redirect -->
-<iframe name="hidden_iframe" style="display:none;"></iframe>
+    .whatsapp { background: #25D366; }
+    .instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+    .email { background: #D44638; }
+
+    footer {
+      background: #333; color: white; text-align: center;
+      padding: 15px; font-size: 0.9rem; margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Contact Us</h1>
+  </header>
+
+  <section>
+    <h2>We’d love to hear from you</h2>
+    <div class="contact-form">
+      <form id="contactForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" required>
+
+        <label for="nationality">Nationality</label>
+        <input type="text" id="nationality" required>
+
+        <label for="notes">Additional Notes</label>
+        <textarea id="notes"></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="fixed-contact">
+    <a href="http://wa.me/+919539342026" target="_blank" class="whatsapp">WhatsApp</a>
+    <a href="https://www.instagram.com/naada.raja.yoga/" target="_blank" class="instagram">Instagram</a>
+    <a href="mailto:yoga@naadaraja.com" target="_blank" class="email">Email</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Naada Raja Yoga. All rights reserved.</p>
+  </footer>
+
+  <!-- Firebase SDK + Firestore -->
+  <script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyAN-QVepXlJYNbPtkqCM3aDosxXTJJOK1M",
+      authDomain: "naadarajayoga-5fa76.firebaseapp.com",
+      projectId: "naadarajayoga-5fa76",
+      storageBucket: "naadarajayoga-5fa76.firebasestorage.app",
+      messagingSenderId: "652836400494",
+      appId: "1:652836400494:web:aa7a29d5aa654aa043257f",
+      measurementId: "G-0MF3B0E7E5"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const analytics = getAnalytics(app);
+
+    // Handle form submission
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      try {
+        await addDoc(collection(db, "contactSubmissions"), {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          phone: document.getElementById("phone").value,
+          nationality: document.getElementById("nationality").value,
+          notes: document.getElementById("notes").value,
+          timestamp: new Date()
+        });
+
+        alert("✅ Thank you! Your response has been submitted.");
+        form.reset();
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("❌ There was an error. Please try again.");
+      }
+    });
+  </script>
+</body>
+</html>
