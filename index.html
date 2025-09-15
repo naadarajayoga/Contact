@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Naada Raja Yoga</title>
+
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #fefefe; color: #333; line-height: 1.6; }
+
+    header {
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2rem;
+      background: linear-gradient(135deg, #008080, #800080);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    section { max-width: 900px; margin: auto; padding: 30px 20px; }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.9rem;
+      color: #444;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .contact-info p { margin: 8px 0; font-size: 1.1rem; }
+
+    form {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    form label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+      color: #444;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    form textarea { resize: vertical; min-height: 120px; }
+    form button {
+      margin-top: 15px;
+      background: linear-gradient(135deg, #008080, #800080);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    form button:hover { opacity: 0.9; }
+
+    .fixed-contact {
+      position: fixed; bottom: 15px; left: 15px; display: flex; flex-direction: column; gap: 10px; z-index: 1000;
+      transform: scale(0.8); transform-origin: bottom left;
+    }
+    .fixed-contact a {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 18px; border-radius: 50px; font-weight: bold;
+      text-decoration: none; color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .fixed-contact a:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0,0,0,0.25); }
+
+    .whatsapp { background: #25D366; }
+    .instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+    .email { background: #D44638; }
+
+    footer {
+      background: #333; color: white; text-align: center; padding: 15px;
+      font-size: 0.9rem; margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Contact Us</h1>
+  </header>
+
+  <section>
+    <h2>We’d love to hear from you</h2>
+    <div class="contact-info">
+      <p>📍 Based in India, available worldwide (online)</p>
+      <p>📞 WhatsApp: <a href="http://wa.me/+919539342026" target="_blank">+91 95393 42026</a></p>
+      <p>📧 Email: <a href="mailto:yoga@naadaraja.com">yoga@naadaraja.com</a></p>
+      <p>📺 YouTube: <a href="https://www.youtube.com/@NaadaRajaYoga" target="_blank">@NaadaRajaYoga</a></p>
+    </div>
+
+    <form action="mailto:yoga@naadaraja.com" method="post" enctype="text/plain">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <div class="fixed-contact">
+    <a href="http://wa.me/+919539342026" target="_blank" class="whatsapp">WhatsApp</a>
+    <a href="https://www.instagram.com/naada.raja.yoga/" target="_blank" class="instagram">Instagram</a>
+    <a href="mailto:yoga@naadaraja.com" target="_blank" class="email">Email</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Naada Raja Yoga. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
