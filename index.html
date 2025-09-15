@@ -58,27 +58,32 @@
     .youtube { background: #FF0000; }
 
     footer {
-      background: #333; color: white; text-align: center;
-      padding: 15px; font-size: 0.9rem;
-      margin-top: auto;
-      display: flex; justify-content: space-between; align-items: center;
+      background: #333; color: white; padding: 15px; font-size: 0.9rem;
+      margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 10px;
     }
-    footer p { margin: 0; }
+    footer p { margin: 0; text-align: center; }
+
     .footer-links {
-      display: flex; gap: 18px; align-items: center;
+      display: flex; gap: 25px; justify-content: center; flex-wrap: wrap;
     }
     .footer-links a {
       color: white;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: inline-flex; align-items: center; gap: 6px;
       text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: bold;
+      font-size: 0.95rem; font-weight: bold;
+      transition: opacity 0.3s, color 0.3s;
     }
+    .footer-links a:hover { opacity: 0.8; }
     .footer-links svg {
-      width: 20px; height: 20px;
-      fill: white;
+      width: 20px; height: 20px; fill: white;
+    }
+
+    /* Highlight active link */
+    .footer-links a.active {
+      color: #ffd700; /* gold text */
+    }
+    .footer-links a.active svg {
+      fill: #ffd700; /* gold icon */
     }
   </style>
 </head>
@@ -177,9 +182,32 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Naada Raja Yoga. All rights reserved.</p>
     <div class="footer-links">
-      <a href="https://products.naadaraja.com" class="products-link" title="Products">
+      <a href="https://naadaraja.com" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M541 229.16l-61-52.06V56c0-13.25-10.75-24-24-24h-72c-13.25 
+          0-24 10.75-24 24v24L314.4 43c-15.9-13.6-39.3-13.6-55.2 
+          0L35 229.2c-9.9 8.4-11.1 23.3-2.7 33.2s23.3 11.1 33.2 
+          2.7L96 232.1V456c0 30.9 25.1 56 56 56h96V360h80v152h96c30.9 
+          0 56-25.1 56-56V232l30.6 26c9.9 8.4 24.8 7.1 33.2-2.7 
+          8.4-9.9 7.1-24.8-2.7-33.2z"/>
+        </svg>
+        Home
+      </a>
+      <a href="https://naadaraja.com/contact" title="Contact" class="active">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path d="M502.3 190.8L327.4 338c-15.9 13.1-39.1 13.1-55 
+          0L9.7 190.8C3.9 186.5 0 179.3 0 
+          171.6V400c0 26.5 21.5 48 48 
+          48h416c26.5 0 48-21.5 
+          48-48V171.6c0-7.7-3.9-14.9-9.7-18.8zM464 
+          64H48C21.5 64 0 85.5 0 
+          112v25.6l224 184c15.9 13.1 39.1 
+          13.1 55 0l224-184V112c0-26.5-21.5-48-48-48z"/>
+        </svg>
+        Contact
+      </a>
+      <a href="https://products.naadaraja.com" title="Products">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
           <path d="M352 160v-32C352 57.31 294.7 0 224 0S96 57.31 
           96 128v32H24C10.75 160 0 170.7 0 
@@ -191,18 +219,8 @@
         </svg>
         Products
       </a>
-      <a href="https://naadaraja.com" title="Home">
-        <!-- Home Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-          <path d="M541 229.16l-61-52.06V56c0-13.25-10.75-24-24-24h-72c-13.25 
-          0-24 10.75-24 24v24L314.4 43c-15.9-13.6-39.3-13.6-55.2 
-          0L35 229.2c-9.9 8.4-11.1 23.3-2.7 33.2s23.3 11.1 33.2 
-          2.7L96 232.1V456c0 30.9 25.1 56 56 56h96V360h80v152h96c30.9 
-          0 56-25.1 56-56V232l30.6 26c9.9 8.4 24.8 7.1 33.2-2.7 
-          8.4-9.9 7.1-24.8-2.7-33.2z"/>
-        </svg>
-      </a>
     </div>
+    <p>&copy; 2025 Naada Raja Yoga. All rights reserved.</p>
   </footer>
 
 </body>
